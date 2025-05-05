@@ -1,7 +1,5 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  define: {
-    global: {},
-  },
+  base: '/goit-js-hw-09/', // назва репозиторію!
 });
