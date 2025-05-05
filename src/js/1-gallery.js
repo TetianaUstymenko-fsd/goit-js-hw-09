@@ -1,19 +1,21 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import data from './data';
+import data from './data.js'; // Обов’язково з .js!
 
 const gallery = document.querySelector('.gallery');
 
 const markup = data.map(({ preview, original, description }) => {
-  return `<li class="gallery-item hvr-grow">
-  <a class="gallery-link " href="${original}">
-    <img
-      class="gallery-image"
-      src="${preview}"
-      alt="${description}"
-    />
-  </a>
-</li>`;
+  return `
+    <li class="gallery-item hvr-grow">
+      <a class="gallery-link" href="${original}">
+        <img
+          class="gallery-image"
+          src="${preview}"
+          alt="${description}"
+        />
+      </a>
+    </li>
+  `;
 });
 
 gallery.insertAdjacentHTML('beforeend', markup.join(''));
