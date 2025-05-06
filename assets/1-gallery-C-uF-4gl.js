@@ -7,4 +7,3 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{S as i}from"./vendor-D0gBiHs
     />
   </a>
 </li>`);e.insertAdjacentHTML("beforeend",n.join(""));new i(".gallery a",{captionsData:"alt",captionDelay:250});
-//# sourceMappingURL=1-gallery-C-uF-4gl.js.map
