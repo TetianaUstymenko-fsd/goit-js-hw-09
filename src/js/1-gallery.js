@@ -1,37 +1,12 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import data from './data.js';
 
-
-const gallery = document.querySelector('.gallery');
-
-const markup = data.map(({ preview, original, description }) => {
-  return `<li class="gallery-item hvr-grow">
-  <a class="gallery-link " href="${original}">
-    <img
-      class="gallery-image"
-      src="${preview}"
-      alt="${description}"
-    />
-  </a>
-</li>`;
-});
-
-gallery.insertAdjacentHTML('beforeend', markup.join(''));
-
-new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-});
-
-
-
-const galleryItems = [
+const images = [
   {
     preview:
-      'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825__340.jpg',
+      'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
     original:
-      'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg',
+      'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
     description: 'Hokkaido Flower',
   },
   {
@@ -92,6 +67,22 @@ const galleryItems = [
   },
 ];
 
+const gallery = document.querySelector('.gallery');
+gallery.insertAdjacentHTML('beforeend', createMarkup(images));
+
+function createMarkup(array) {
+  return array
+    .map(
+      image => `
+      <li class="gallery-item">
+      <a class="gallery-link" href="${image.original}">
+         <img src="${image.preview}" alt="${image.description}" class="gallery-image">
+      </a>
+      </li>
+    `
+    )
+    .join('');
+}
 
 let lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
