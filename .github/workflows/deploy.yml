@@ -7,6 +7,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
@@ -16,10 +17,9 @@ jobs:
           npm install
           npm run build
 
-          - name: Deploy 🚀
-          uses: JamesIves/github-pages-deploy-action@4.1.0
-          with:
-            branch: gh-pages
-            folder: dist
-            token: ${{ secrets.GITHUB_TOKEN }}
-        
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
